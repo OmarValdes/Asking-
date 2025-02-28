@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Videojuego</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Mi Videojuego</h1>
+        <p>¡Descarga y juega ahora!</p>
+    </header>
+
+    <main>
+        <img src="images/game-preview.png" alt="Captura del juego">
+        <button id="downloadBtn">Descargar APK</button>
+        <p>Versión 1.0 | Compatible con Android</p>
+    </main>
+
+    <footer>
+        <p>© 2025 Mi Videojuego. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado:', reg))
+                .catch(err => console.error('Error al registrar Service Worker:', err));
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            window.location.href = 'game.apk';
+        });
+    </script>
+</body>
+</html>
